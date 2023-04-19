@@ -21,7 +21,7 @@ async def readPage(page, write, cb):
         count += 1
     cb()
 
-output = csv.writer(open('world-universities.csv', 'w', encoding='utf8'))
+output = csv.writer(open('afro-world-universities.csv', 'w', encoding='utf8'))
 
 async def loadList(dom, country, cb):
     global count
