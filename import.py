@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import asyncio
 from country_data import countries
+import json
 
 count = 0
 lastPage = None
@@ -39,7 +40,8 @@ async def loadList(dom, country, cb):
     print(total)
     cb()
 
-countriesCodes = countries.keys()
+#countriesCodes = countries.keys()
+
 for country in countriesCodes:
     if len(country) != 2:
         continue
