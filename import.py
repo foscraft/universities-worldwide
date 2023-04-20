@@ -2,7 +2,7 @@ import csv
 import requests
 from bs4 import BeautifulSoup
 import asyncio
-from country_data import countries
+#from country_data import countries
 import json
 
 count = 0
@@ -41,10 +41,11 @@ async def loadList(dom, country, cb):
     cb()
 
 #countriesCodes = countries.keys()
-
-for country in countriesCodes:
-    if len(country) != 2:
-        continue
-    dom = "edu" if country == "US" else country
-    asyncio.run(loadList(dom.lower(), country, lambda: None))
+with open('codes.json', 'r') as json_file:
+    countriesCodes = json.load(json_file)
+    for country in countriesCodes:
+        if len(country) != 2:
+            continue
+        dom = "edu" if country == "US" else country
+        asyncio.run(loadList(dom.lower(), country, lambda: None))
 
